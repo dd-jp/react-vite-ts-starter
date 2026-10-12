@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/fallow/schema.json",
+  "entry": ["src/main.tsx", "e2e/**/*.spec.ts"],
+  "ignorePatterns": ["dist", "coverage", "reports", ".stryker-tmp"],
+  "boundaries": {
+    "zones": [
+      { "name": "app", "patterns": ["src/app/**", "src/main.tsx"] },
+      { "name": "features", "patterns": ["src/features/**"] },
+      { "name": "shared", "patterns": ["src/shared/**"] }
+    ],
+    "rules": [
+      { "from": "app", "allow": ["features", "shared"] },
+      { "from": "features", "allow": ["shared"] },
+      { "from": "shared", "allow": [] }
+    ]
+  }
+}
