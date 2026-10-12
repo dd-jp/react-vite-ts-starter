@@ -1,0 +1,15 @@
+.counter {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
+}
+
+.counter output {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter__actions {
+  display: flex;
+  gap: 0.5rem;
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "react", "jsx-a11y", "import", "promise"],
+  "jsPlugins": ["eslint-plugin-no-comment-slop"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "warn"
+  },
+  "env": {
+    "browser": true,
+    "es2024": true
+  },
+  "ignorePatterns": [
+    "dist",
+    "coverage",
+    "reports",
+    ".stryker-tmp",
+    "playwright-report",
+    "test-results"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": [
+      "error",
+      {
+        "allow": ["**/*.css", "@testing-library/jest-dom/vitest"]
+      }
+    ],
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": "error",
+    "react/no-unknown-property": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/no-unsafe-argument": "error",
+    "typescript/no-unsafe-assignment": "error",
+    "typescript/no-unsafe-call": "error",
+    "typescript/no-unsafe-member-access": "error",
+    "typescript/no-unsafe-return": "error",
+    "typescript/consistent-type-imports": "error",
+    "eqeqeq": "error",
+    "import/no-cycle": "error",
+    "import/no-default-export": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["@/features/*/*", "**/features/*/*"],
+            "message": "import a feature only through its index.ts barrel"
+          }
+        ]
+      }
+    ],
+    "no-comment-slop/no-banner-comment": "error",
+    "no-comment-slop/no-foreign-syntax": "error",
+    "no-comment-slop/no-jargon": "error",
+    "no-comment-slop/no-trailing-comment": "error",
+    "no-comment-slop/multiline-jsdoc-format": "error",
+    "no-comment-slop/no-trailing-period": "error",
+    "no-comment-slop/max-comment-lines": [
+      "error",
+      {
+        "max": 6
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+      "plugins": ["vitest"],
+      "env": {
+        "vitest": true
+      },
+      "rules": {
+        "vitest/expect-expect": [
+          "error",
+          {
+            "assertFunctionNames": ["expect", "expectNoA11yViolations"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.config.ts", "*.config.mjs"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "rangeStrategy": "pin",
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "groupName": "oxlint",
+      "matchPackageNames": ["oxlint", "oxlint-tsgolint"]
+    },
+    {
+      "groupName": "vitest",
+      "matchPackageNames": ["vitest", "@vitest/**"]
+    },
+    {
+      "description": "Stryker 10 runs on Vitest 5 but its mutants never take effect; hold Vitest 5 until Stryker supports it",
+      "matchPackageNames": ["vitest", "@vitest/**"],
+      "allowedVersions": "<5"
+    },
+    {
+      "groupName": "stryker",
+      "matchPackageNames": ["@stryker-mutator/**"]
+    },
+    {
+      "groupName": "react",
+      "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"]
+    },
+    {
+      "groupName": "playwright",
+      "matchPackageNames": ["@playwright/test", "@axe-core/playwright"]
+    }
+  ]
+}

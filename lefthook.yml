@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      glob: '*.{ts,tsx,js,mjs,json,css}'
+      run: npx biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+    oxlint:
+      glob: '*.{ts,tsx,js,mjs}'
+      run: npx oxlint --type-aware {staged_files}
+    typecheck:
+      glob: '*.{ts,tsx}'
+      run: npm run typecheck
