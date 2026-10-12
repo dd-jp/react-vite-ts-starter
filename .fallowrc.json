@@ -4,14 +4,40 @@
   "ignorePatterns": ["dist", "coverage", "reports", ".stryker-tmp"],
   "boundaries": {
     "zones": [
-      { "name": "app", "patterns": ["src/app/**", "src/main.tsx"] },
-      { "name": "features", "patterns": ["src/features/**"] },
-      { "name": "shared", "patterns": ["src/shared/**"] }
+      {
+        "name": "app",
+        "patterns": ["src/app/**", "src/main.tsx"]
+      },
+      {
+        "name": "features",
+        "patterns": ["src/features/**"]
+      },
+      {
+        "name": "shared",
+        "patterns": ["src/shared/**"]
+      },
+      {
+        "name": "test",
+        "patterns": ["test/**"]
+      }
     ],
     "rules": [
-      { "from": "app", "allow": ["features", "shared"] },
-      { "from": "features", "allow": ["shared"] },
-      { "from": "shared", "allow": [] }
+      {
+        "from": "app",
+        "allow": ["features", "shared", "test"]
+      },
+      {
+        "from": "features",
+        "allow": ["shared", "test"]
+      },
+      {
+        "from": "shared",
+        "allow": ["test"]
+      },
+      {
+        "from": "test",
+        "allow": []
+      }
     ]
   }
 }

@@ -4,7 +4,7 @@ export default {
   vitest: {
     configFile: 'vitest.config.ts',
   },
-  mutate: ['src/**/*.{ts,tsx}', '!src/**/*.test.{ts,tsx}', '!src/shared/test/**', '!src/main.tsx'],
+  mutate: ['src/**/*.{ts,tsx}', '!src/**/*.test.{ts,tsx}', '!src/main.tsx'],
   // TS 7 ships no JS compiler API, so Stryker's tsconfig preprocessor must be pointed at a file that does not exist
   tsconfigFile: '.stryker-tsconfig-unused.json',
   coverageAnalysis: 'perTest',

@@ -55,7 +55,8 @@ See [CLAUDE.md](CLAUDE.md) for tool ownership and the rules behind each gate.
 src/
   app/                 page composition
   features/counter/    demo feature: component, logic, tests, barrel
-  shared/test/         test setup and axe helper
+  shared/              cross-cutting runtime code (empty)
+test/                  unit-test setup and axe helper (import via @test/)
 e2e/                   Playwright specs
 ```
 

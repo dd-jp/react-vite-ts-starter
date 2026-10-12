@@ -49,6 +49,10 @@
           {
             "group": ["@/features/*/*", "**/features/*/*"],
             "message": "import a feature only through its index.ts barrel"
+          },
+          {
+            "group": ["@test/*", "**/test/*"],
+            "message": "test helpers are for test files only"
           }
         ]
       }
@@ -78,6 +82,17 @@
           "error",
           {
             "assertFunctionNames": ["expect", "expectNoA11yViolations"]
+          }
+        ],
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["@/features/*/*", "**/features/*/*"],
+                "message": "import a feature only through its index.ts barrel"
+              }
+            ]
           }
         ]
       }

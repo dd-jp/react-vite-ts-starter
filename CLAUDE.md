@@ -6,8 +6,11 @@ React 19 + Vite 8 + TypeScript 7 starter. Node 24, npm.
 
 - `src/app/` composes features into the page. May import `features` and `shared`.
 - `src/features/<name>/` one folder per feature, public API in `index.ts`. May import `shared` only.
-- `src/shared/` cross-cutting code (test helpers today). Imports nothing from `app` or `features`.
+- `src/shared/` cross-cutting runtime code. Imports nothing from `app` or `features`.
+- `test/` unit-test setup and helpers, imported via `@test/`. Test files only: oxlint rejects `@test/` imports from non-test files.
 - `e2e/` Playwright specs.
+
+`src/` holds only code that ships. Test types (`vitest/globals`, jest-dom) live in `tsconfig.test.json`, not the app config.
 
 Import a feature only through its `index.ts` barrel (oxlint `no-restricted-imports`). Zone rules are enforced by `fallow architecture`. Use the `@/` alias for cross-zone imports, relative paths inside a feature.
 

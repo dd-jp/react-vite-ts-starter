@@ -1,5 +1,5 @@
+import { expectNoA11yViolations } from '@test/axe.ts';
 import { render, screen } from '@testing-library/react';
-import { expectNoA11yViolations } from '@/shared/test/axe.ts';
 import { App } from './App.tsx';
 
 describe('App', () => {
