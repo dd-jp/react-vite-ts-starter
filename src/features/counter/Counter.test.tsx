@@ -1,6 +1,6 @@
+import { expectNoA11yViolations } from '@test/axe.ts';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { expectNoA11yViolations } from '@/shared/test/axe.ts';
 import { Counter } from './Counter.tsx';
 
 function setup(props: Parameters<typeof Counter>[0] = {}) {
